@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DoZe | Streaming & Rewards</title>
+    <meta name="description" content="DoZe is a premium movie and anime streaming app with rewards, subscriptions, unlocks, and downloads." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand-logo">D</div>
+          <div>
+            <p class="mini-label">Premium stream</p>
+            <h1>DoZe</h1>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <button class="nav-item active" data-tab="home">Home</button>
+          <button class="nav-item" data-tab="movies">Movies</button>
+          <button class="nav-item" data-tab="anime">Anime</button>
+          <button class="nav-item" data-tab="trending">Trending</button>
+          <button class="nav-item" data-tab="downloads">Downloads</button>
+        </nav>
+
+        <div class="wallet-box">
+          <p class="mini-label">Wallet</p>
+          <div class="wallet-row">
+            <span>DoZe Coins</span>
+            <strong id="coinBalance">0</strong>
+          </div>
+          <div class="wallet-row muted">
+            <span>Plan</span>
+            <strong id="memberStatus">Free</strong>
+          </div>
+          <div class="wallet-row muted">
+            <span>Monthly</span>
+            <strong>$10</strong>
+          </div>
+        </div>
+
+        <div class="sidebar-actions">
+          <button class="primary action-btn" id="watchAdBtn">Watch ad +50 coins</button>
+          <button class="secondary action-btn" id="dailyRewardBtn">Daily reward</button>
+          <button class="premium action-btn" id="upgradeBtn">Upgrade to Pro</button>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="search-wrap">
+            <span class="search-icon">⌕</span>
+            <input id="searchInput" type="text" placeholder="Search movies or anime..." aria-label="Search catalog" />
+          </div>
+
+          <div class="profile-pill">
+            <div class="avatar">U</div>
+            <div>
+              <p class="mini-label">Profile</p>
+              <strong>Unseen84747</strong>
+            </div>
+          </div>
+        </header>
+
+        <section class="hero" id="heroSection">
+          <div class="hero-content">
+            <p class="hero-tag">Featured this week</p>
+            <h2 id="heroTitle">Blade Runner 2049</h2>
+            <div class="meta-strip">
+              <span id="heroType">Movie</span>
+              <span id="heroYear">2017</span>
+              <span id="heroRating">★ 8.0</span>
+              <span id="heroCost">540 coins</span>
+            </div>
+            <p id="heroDescription">
+              A mysterious investigation leads Detective K to uncover a truth that could rewrite the future.
+            </p>
+            <div class="hero-actions">
+              <button class="primary" id="heroWatchBtn">Unlock now</button>
+              <button class="ghost" id="heroDownloadBtn">Download for later</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel-block">
+          <div class="section-head">
+            <div>
+              <p class="mini-label">Recommended</p>
+              <h3>For you</h3>
+            </div>
+            <button class="text-link" id="shuffleBtn">Refresh picks</button>
+          </div>
+          <div class="recommend-row" id="recommendRow"></div>
+        </section>
+
+        <section class="panel-block">
+          <div class="section-head">
+            <div>
+              <p class="mini-label">Continue exploring</p>
+              <h3>Browse catalog</h3>
+            </div>
+            <div class="filter-row" id="filterRow">
+              <button class="filter active" data-filter="all">All</button>
+              <button class="filter" data-filter="movie">Movies</button>
+              <button class="filter" data-filter="anime">Anime</button>
+              <button class="filter" data-filter="trending">Trending</button>
+            </div>
+          </div>
+
+          <div class="catalog-grid" id="catalogGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal hidden" id="movieModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="closeModalBtn" aria-label="Close">×</button>
+        <div class="modal-cover-wrap">
+          <img id="modalPoster" src="" alt="Movie poster" />
+        </div>
+        <div class="modal-copy">
+          <p class="mini-label">Now viewing</p>
+          <h3 id="modalTitle">Title</h3>
+          <div class="meta-strip modal-meta">
+            <span id="modalType">Movie</span>
+            <span id="modalYear">2024</span>
+            <span id="modalRating">★ 8.5</span>
+            <span id="modalCost">400 coins</span>
+          </div>
+          <div class="badge-row" id="modalBadges"></div>
+          <p id="modalDescription"></p>
+          <div class="modal-actions">
+            <button class="primary" id="modalUnlockBtn">Unlock</button>
+            <button class="ghost" id="modalDownloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
